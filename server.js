@@ -21,7 +21,7 @@ mongoose.connection.on('error',(err)=>{
 })
 
 app.use(cors());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 app.use('/viewers',viewers);
 
 app.get('/',(req,res)=>{
