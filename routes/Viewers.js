@@ -23,10 +23,14 @@ viewers.post('/register',(req,res)=>{
         last_name:req.body.last_name,
         email:req.body.email,
         password:req.body.password,
+        donar:req.body.donar,
+        blood_type:req.body.blood_type,
+        weight:req.body.weight,
+        height:req.body.height,
         created:today
     }
     Viewer.findOne({
-        email:req.body.email
+        email:req.body.email 
     })
     .then(user=>{
         if(!user){
@@ -92,4 +96,24 @@ viewers.post('/login',(req,res)=>{
 //     })
 //     .catch(err=>res.status(400).json('wrong credentials'))
 // });
+
+
+//get blood donar details
+viewers.get('/donars',(req,res)=>{
+    Viewer.find({donar:true})
+    .then(donars=>res.json(donars))
+    .catch(err=>{
+        res.send('error '+err)
+    })
+})
+
+viewers.get('/:id',(req,res)=>{
+    const {id}=req.params;
+    Viewer.find({_id:id})
+    .then(user=>res.json(user))
+    .catch(err=>{
+        res.send('error '+err)
+    })
+})
+  
 module.exports=viewers;
