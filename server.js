@@ -4,6 +4,7 @@ var bodyParser=require('body-parser');
 var cors=require('cors');
 var path=require('path');
 var viewers=require('./routes/Viewers');
+var request=require('./routes/Requests');
 
 var app=express();
 
@@ -23,6 +24,7 @@ mongoose.connection.on('error',(err)=>{
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/viewers',viewers);
+app.use('/request',request);
 
 app.get('/',(req,res)=>{
     res.send('foobar')

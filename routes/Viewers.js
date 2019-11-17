@@ -107,6 +107,7 @@ viewers.get('/donars',(req,res)=>{
     })
 })
 
+//get a certain user by id
 viewers.get('/:id',(req,res)=>{
     const {id}=req.params;
     Viewer.find({_id:id})
