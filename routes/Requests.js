@@ -36,7 +36,24 @@ requests.post('/add',(req,res)=>{
     })
 })
 
+//get requests sent for donars
+requests.get('/sent/:id',(req,res)=>{
+    const {id}=req.params;
+    Request.find({viewer_id:id})
+    .then(request=>res.json(request))
+    .catch(err=>{
+        res.send('error '+err)
+    })
+})
 
+//get requested received for donars
+requests.get('/received/:id',(req,res)=>{
+    const {id}=req.params;
+    Request.find({donar_id:id})
+    .then(request=>res.json(request))
+    .catch(err=>{
+        res.send('error '+err)
+    })
+})
 
-
-module.exports=requests;
+module.exports=requests; 

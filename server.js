@@ -18,10 +18,10 @@ mongoose.connection.on('connected',()=>{
 mongoose.connection.on('error',(err)=>{
     if(err){
         console.log('Error: ',err);
-    }
+    } 
 })
 
-app.use(cors());
+app.use(cors()); 
 app.use(bodyParser.json());
 app.use('/viewers',viewers);
 app.use('/request',request);
