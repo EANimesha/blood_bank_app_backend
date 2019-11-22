@@ -5,6 +5,7 @@ var cors=require('cors');
 var path=require('path');
 var viewers=require('./routes/Viewers');
 var request=require('./routes/Requests');
+var profile=require('./routes/Profile');
 
 var app=express();
 
@@ -25,10 +26,11 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/viewers',viewers);
 app.use('/request',request);
+app.use('/profile',profile);
 
 app.get('/',(req,res)=>{
     res.send('foobar')
 })
 
 
-app.listen(port,()=>console.log('Server started port '+ port))
+app.listen(port,()=>console.log('Server started port '+ port)) 

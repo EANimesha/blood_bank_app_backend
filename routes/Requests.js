@@ -56,4 +56,17 @@ requests.get('/received/:id',(req,res)=>{
     })
 })
 
+// requests.get('/profile',(req,res)=>{
+//     const {id}=req.body;
+//     Viewer.updateOne({_id:id},{$set:req.body},function(err,result){
+//         if(err){
+//             res.send({'error':'An error has occurred'});
+//         }else{
+//             console.log('' + result + ' document(s) updated');
+//             res.send(user);
+//         }
+
+// })
+// })  
+
 module.exports=requests; 
